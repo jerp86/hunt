@@ -4,7 +4,8 @@ import { StyleSheet, Text, View } from "react-native";
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Évelin, I S2 you!</Text>
+      <Text style={styles.welcome}>#Teste</Text>
+      <View style={styles.box} />
     </View>
   );
 }
@@ -12,8 +13,18 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    justifyContent: "center",
     alignItems: "center",
-    justifyContent: "center"
+    backgroundColor: "#f5fcff"
+  },
+  welcome: {
+    fontSize: 40,
+    textAlign: "center",
+    margin: 10
+  },
+  box: {
+    width: 60,
+    height: 70,
+    backgroundColor: "#F00"
   }
 });
