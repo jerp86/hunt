@@ -8,22 +8,29 @@ export default class Main extends Component {
     title: "JSHunt"
   };
 
+  state = {
+    docs: []
+  };
+
   componentDidMount() {
     this.loadProducts();
   }
 
   loadProducts = async () => {
-    const response = await api.get("/products").catch(err => err);
+    const response = await api.get("/products");
 
-    const { docs } = response.data;
+    const { docs, ...productInfo } = response.data;
 
-    console.log(docs);
+    this.setState({ docs });
   };
 
   render() {
     return (
       <View>
-        <Text>Página Main</Text>
+        <Text>Página Main:</Text>
+        {this.state.docs.map(product => (
+          <Text key={product._id}>{product.title}</Text>
+        ))}
       </View>
     );
   }
